@@ -15,9 +15,14 @@ post ('/') do
   @list = Hangman.all()
   # @game = Hangman.find()
   guess = params["guess"]
-  Hangman.make_guess(guess)
+  @message = Hangman.make_guess(guess)
   @tries = Hangman.find()
   @warning = Hangman.end_of_game()
+    if @list[0].attempts == 7
+      erb(:end)
+    else
+      erb(:game)
+    end
 
-  erb(:game)
+
 end

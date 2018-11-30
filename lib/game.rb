@@ -18,8 +18,13 @@ class Hangman
   end
 
   def self.make_guess(user_letter)
-    @@list.each do |item|
-      item.attempts = item.attempts + 1
+    if @@list[0].word.include?(user_letter)
+      message = "nice!"
+    else
+      @@list.each do |item|
+        item.attempts = item.attempts + 1
+      end
+      message = "bummer!"
     end
   end
 
@@ -31,7 +36,7 @@ class Hangman
     if @@list[0].attempts == 7
       return "game over!"
     elsif @@list[0].attempts < 7
-      return "you have " + ((7-(@@list[0].attempts)).to_s) + "remaining"
+      return "you have " + ((7-(@@list[0].attempts)).to_s) + " remaining"
     end
   end
 
