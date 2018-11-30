@@ -24,5 +24,4 @@ post ('/') do
       erb(:game)
     end
 
-
 end
