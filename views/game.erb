@@ -1,0 +1,15 @@
+<h1><%=@okay%></h1>
+
+<h2>Tries : <%= @tries%>
+</h2>
+
+<h2> <%= @warning %>
+</h2>
+
+<form action="/" method="post">
+  <div class="form-group">
+    <label for="guess">guess</label>
+    <input id="guess" name="guess" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Try!</button>
+</form>
